@@ -34,5 +34,13 @@ slider.addEventListener("input", function() {
     while (i < squareCount) {
         grid.appendChild(createGridSquare());
         i++;
-}
-  });
+    }
+});
+
+grid.addEventListener('mouseover', function(event) {
+    // Check if the hovered element is a node
+    if (event.target.classList.contains('square')) {
+        // event.target is the hovered node
+        event.target.style.backgroundColor = 'red';
+    }
+});

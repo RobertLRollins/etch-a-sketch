@@ -1,0 +1,14 @@
+#grid {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 25%;
+    height: 25%;
+    background-color: aqua;
+    box-sizing: border-box;
+    border: 1px solid black;
+}

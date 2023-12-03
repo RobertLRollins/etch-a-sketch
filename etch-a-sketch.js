@@ -42,22 +42,38 @@ slider.addEventListener("input", function() {
     }
 });
 
-let bgColor = 'black';
+let penColor = 'black';
+let bgColor = 'white';
 //changes the color of the squares when the mouse is placed over them
 grid.addEventListener('mouseover', function(event) {
     // Check if the hovered element is a node
     if (event.target.classList.contains('square')) {
-        // event.target is the hovered node
-        event.target.style.backgroundColor = bgColor;
+        let checkbox = document.getElementById('shading')
+        if (!checkbox.checked) {
+            event.target.style.backgroundColor = penColor;
+            event.target.style.opacity = 1;
+        }
+        if (checkbox.checked) {
+            event.target.style.backgroundColor = penColor;
+            currentOpacity = parseFloat(event.target.style.opacity);
+            if (isNaN(currentOpacity)) {
+                currentOpacity = 0;
+            }
+            if (currentOpacity < 1) {
+                event.target.style.opacity = currentOpacity + 0.1;
+            }
+        }
     }
 });
 
-const clear = document.getElementById('clear');
-
-clear.addEventListener('click', function() {
+function clear() {
     const squares = document.querySelectorAll('.square');
-    squares.forEach(node => node.style.backgroundColor = 'white');
-})
+    squares.forEach(node => node.style.backgroundColor = bgColor);
+    squares.forEach(node => node.style.opacity = 0);
+}
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', clear);
 
 // Select the button and the element
 let button = document.getElementById('mode');
@@ -73,11 +89,17 @@ button.addEventListener('click', function() {
         // Switch to the new class
         element.classList.replace('lightMode', 'darkMode');
         grid.classList.replace('gridLight', 'gridDark');
+        penColor = 'white';
+        bgColor = 'black';
+        clear();
         button.src = 'light-mode.png';
     } else {
         // Switch back to the default class
         element.classList.replace('darkMode', 'lightMode');
         grid.classList.replace('gridDark', 'gridLight');
+        penColor = 'black';
+        bgColor = 'white';
+        clear();
         button.src = 'dark-mode.png';
     }
 });

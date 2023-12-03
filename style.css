@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+body {
+    font-family: 'Audiowide', 'Lucida Console', monospace;
+}
+
 #grid {
     display: flex;
     width: 500px;
@@ -27,11 +33,11 @@
     cursor: pointer;
     outline: none;
     padding: 6px;
-    margin: 15px;
+
 }
   
 #mode:hover {
-    background-color: lightgray;
+    background-color: gray;
 }
 
 .lightMode {

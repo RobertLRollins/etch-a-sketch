@@ -15,7 +15,7 @@ function createGridSquare() {
     square.style.height = squareSizePercent + '%';
     square.style.width = squareSizePercent + '%';
     const label = document.getElementById('sliderLabel');
-    label.textContent = 'Grid Size: ' + gridSize + ' X ' + gridSize;
+    label.textContent = gridSize + ' X ' + gridSize;
     return square;
 }
 //loops until each square for the grid is created
@@ -82,6 +82,8 @@ let element = document.querySelector('body');
 // Add the default class to the element initially
 element.classList.add('lightMode');
 grid.classList.add('gridLight');
+let mainColor = getComputedStyle(document.documentElement).getPropertyValue('--main-color').trim();
+let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim();
 // Add an event listener to the button
 button.addEventListener('click', function() {
     // Check if the element currently has the default class
@@ -89,6 +91,8 @@ button.addEventListener('click', function() {
         // Switch to the new class
         element.classList.replace('lightMode', 'darkMode');
         grid.classList.replace('gridLight', 'gridDark');
+        document.documentElement.style.setProperty('--main-color', 'black');
+        document.documentElement.style.setProperty('--secondary-color', 'white');
         penColor = 'white';
         bgColor = 'black';
         clear();
@@ -97,6 +101,8 @@ button.addEventListener('click', function() {
         // Switch back to the default class
         element.classList.replace('darkMode', 'lightMode');
         grid.classList.replace('gridDark', 'gridLight');
+        document.documentElement.style.setProperty('--main-color', 'white');
+        document.documentElement.style.setProperty('--secondary-color', 'black');
         penColor = 'black';
         bgColor = 'white';
         clear();

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="etch-a-sketch.js" defer></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Etch A Sketch</title>
 </head>
 <body>
     <div class='title'> 
@@ -16,15 +16,17 @@
             <input id="mode" type="image" alt="mode" src="dark-mode.png"></input>
         </div>
         <div>
-            <input type='checkbox' id='shading'>
-            <label for='shading'>SHADING</label>
+            <label class="container">Shading
+                <input id='shading' type="checkbox">
+                <span class="checkmark"></span>
+            </label>
         </div>
-        <div class="slidercontainer">
+        <div class="sliderContainer">
             <label for="slider" id="sliderLabel"></label>
-            <input type="range" min="12" max="99" value="24" id="slider">
+            <input type="range" min="12" max="99" value="24" id="slider" class="slider">
         </div>
         <div>
-            <input  id="clear" type="button" value="CLEAR"></input>
+            <input class="button"  id="clear" type="button" value="CLEAR"></input>
         </div>
     </div>
     <div id="grid">

@@ -1,13 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
+:root {
+    --main-color: white;
+    --secondary-color: black;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 body {
     font-family: 'Audiowide', 'Lucida Console', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    font-size: 60px;
 }
 
 #grid {
     display: flex;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     flex-wrap: wrap;
 }
 
@@ -21,10 +40,6 @@ body {
     border: 3px solid white;
 }
 
-.square {
-    box-sizing: border-box;
-}
-
 #mode {
     width: 30px;
     height: 30px;
@@ -33,11 +48,10 @@ body {
     cursor: pointer;
     outline: none;
     padding: 6px;
-
 }
   
 #mode:hover {
-    background-color: gray;
+    opacity: 0.3;
 }
 
 .lightMode {
@@ -48,4 +62,132 @@ body {
 .darkMode {
     background-color: black;
     color: white;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliderContainer {
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px; 
+    background: var(--main-color);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border: 3px solid var(--secondary-color);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: var(--main-color);
+    cursor: pointer;
+    border: 3px solid var(--secondary-color);
+}
+
+.slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: var(--main-color);
+    cursor: pointer;
+    border: 3px solid var(--secondary-color);
+}
+
+/* Customize the label (the container) */
+.container {
+    display: flex;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 21px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 3px solid var(--secondary-color);
+    background-color: var(--main-color);
+}
+
+.container:hover input ~ .checkmark {
+    background-color: var(--secondary-color);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--secondary-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--main-color);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.button {
+    font-family: inherit;
+    cursor: pointer;
+    background-color: var(--main-color);
+    border: 3px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 21px;
+    transition-duration: 0.4s;
+}
+.button:hover {
+    background-color: var(--secondary-color); 
+    color: var(--main-color);
 }

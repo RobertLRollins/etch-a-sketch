@@ -8,11 +8,30 @@
     <title>Document</title>
 </head>
 <body>
+    <div class='title'> 
+        <h1 class='etchAsketch'>Etch A Sketch</h1>
+    </div> 
+    <div class='menu'>
+        <div>
+            <input id="mode" type="image" alt="mode" src="dark-mode.png"></input>
+        </div>
+        <div>
+            <input type='checkbox' id='shading'>
+            <label for='shading'>SHADING</label>
+        </div>
+        <div class="slidercontainer">
+            <label for="slider" id="sliderLabel"></label>
+            <input type="range" min="12" max="99" value="24" id="slider">
+        </div>
+        <div>
+            <input  id="clear" type="button" value="CLEAR"></input>
+        </div>
+    </div>
     <div id="grid">
     </div>
-    <div class="slidercontainer">
-        <label for="slider" id="sliderLabel"></label>
-        <input type="range" min="12" max="99" value="24" class="slider" id="slider">
+    <div>
+        Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+         from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
     </div>
 </body>
 </html>

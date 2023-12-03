@@ -5,9 +5,41 @@
     flex-wrap: wrap;
 }
 
+.gridLight {
+    background-color: white;
+    border: 3px solid black;
+}
+
+.gridDark {
+    background-color: black;
+    border: 3px solid white;
+}
+
 .square {
-    /*width: 25%;
-    height: 25%;*/
     box-sizing: border-box;
-    border: 1px solid black;
+}
+
+#mode {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    padding: 6px;
+    margin: 15px;
+}
+  
+#mode:hover {
+    background-color: lightgray;
+}
+
+.lightMode {
+    background-color: white;
+    color: black;
+}
+
+.darkMode {
+    background-color: black;
+    color: white;
 }
